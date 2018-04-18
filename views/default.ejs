@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>OneNet News Feed</title>
+</head>
+<body>
+<h1>News feed</h1>
+
+<table border="1" width="100%">
+
+        <tr>
+                <th>Title</th><th>Author</th><th>Text</th><th>Status</th><th>Probability</th><th>URL</th>
+        </tr>
+    <% for (var i = 0; i < news.length;  i++) { %>
+     <tr>
+            <td><%= news[i].title %></td>
+       <td><%= news[i].author %></td>
+       <td><%= news[i].text %></td>
+       <td><%= news[i].status %></td>
+       <td><%= news[i].probability %></td>
+       <td><%= news[i].url %></td>
+     </tr>    
+    <% } %>
+ </table>
+ <textarea id = 'textarea' rows="10" cols="50">
+
+    </textarea>
+      <button onclick="Upload()">Upload</button> </body>
+        <script type="text/javascript">
+            function Upload()
+       {
+            var theUrl = 'http://localhost:3000/upload/' + document.getElementById("textarea").value ;
+           window.location.assign(theUrl);
+       }
+       </script>
+
+</body>
+</html>
